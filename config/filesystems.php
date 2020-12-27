@@ -32,12 +32,12 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root' => $_SERVER['DOCUMENT_ROOT'] . ('/storage/app'),
         ],
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
+            'root' => $_SERVER['DOCUMENT_ROOT'] . ('/storageapp/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
@@ -66,7 +66,7 @@ return [
     */
 
     'links' => [
-        public_path('storage') => storage_path('app/public'),
+        public_path('storage') => $_SERVER['DOCUMENT_ROOT'] . ('/storage/app/public'),
     ],
 
 ];

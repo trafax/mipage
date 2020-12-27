@@ -66,8 +66,8 @@ return [
         'website' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => '',
-            'port' => '',
+            'host' => '127.0.0.1',
+            'port' => env('DB_PORT', '3306'),
             'database' => '',
             'username' => '',
             'password' => '',

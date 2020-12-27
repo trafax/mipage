@@ -59,7 +59,8 @@ return [
     |
     */
 
-    'files' => storage_path('framework/sessions'),
+    //'files' => storage_path('framework/sessions'),
+    'files' => $_SERVER['DOCUMENT_ROOT'] . ('/storage/framework/sessions'),
 
     /*
     |--------------------------------------------------------------------------

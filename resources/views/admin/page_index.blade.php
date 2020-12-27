@@ -7,26 +7,12 @@
         </div>
         <div class="modal-body">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <a href="">Cras justo odio</a>
-                    <span class="text-muted small d-block">cras-jsi-osl</span>
-                </li>
-                <li class="list-group-item">
-                    <a href="">Cras justo odio</a>
-                    <span class="text-muted small d-block">cras-jsi-osl</span>
-                </li>
-                <li class="list-group-item">
-                    <a href="">Cras justo odio</a>
-                    <span class="text-muted small d-block">cras-jsi-osl</span>
-                </li>
-                <li class="list-group-item">
-                    <a href="">Cras justo odio</a>
-                    <span class="text-muted small d-block">cras-jsi-osl</span>
-                </li>
-                <li class="list-group-item">
-                    <a href="">Cras justo odio</a>
-                    <span class="text-muted small d-block">cras-jsi-osl</span>
-                </li>
+                @foreach(App\Models\Page::get() as $page)
+                    <li class="list-group-item">
+                        <a href="">{{ $page->title }}</a>
+                        <span class="text-muted small d-block">{{ $page->slug }}</span>
+                    </li>
+                @endforeach
             </ul>
         </div>
         <div class="modal-footer">

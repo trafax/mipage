@@ -17,6 +17,7 @@
 
     @include('partials.navigation')
     @include('partials.alerts')
+    @include('partials.modal')
 
     @yield('content')
 </body>

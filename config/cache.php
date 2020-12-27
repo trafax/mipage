@@ -50,7 +50,7 @@ return [
 
         'file' => [
             'driver' => 'file',
-            'path' => storage_path('framework/cache/data'),
+            'path' => $_SERVER['DOCUMENT_ROOT'] . ('/storage/framework/cache/data'),
         ],
 
         'memcached' => [

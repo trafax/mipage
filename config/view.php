@@ -30,8 +30,7 @@ return [
 
     'compiled' => env(
         'VIEW_COMPILED_PATH',
-        //realpath(storage_path('framework/views'))
-        realpath($_SERVER['DOCUMENT_ROOT'] . ('/storage/framework/views'))
+        $_SERVER['DOCUMENT_ROOT'] . ('/storage/framework/views')
     ),
 
 ];

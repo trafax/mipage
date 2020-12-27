@@ -5,3 +5,13 @@
  */
 
 require('./bootstrap');
+
+$(function(){
+    $('body').on('click', '[data-href]', function(){
+        $('.modal').modal('hide');
+        var dataURL = $(this).attr('data-href');
+        $('#modal').load(dataURL,function(){
+            $('.modal').modal('show');
+        });
+    });
+});

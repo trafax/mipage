@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Website;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // $website = new Website();
+        // $website->domain = 'site1';
+        // $website->options = ['db_hostname' => 'localhost', 'db_database' => 'mipage_site2', 'db_username' => 'root', 'db_password' => 'root'];
+        // $website->save();
+
         return view('home');
     }
 }

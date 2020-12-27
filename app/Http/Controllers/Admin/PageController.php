@@ -1,51 +1,30 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Category;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
-class CategoryController extends Controller
+class PageController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('role:owner');
+        $this->middleware('role:admin');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        return view('admin/category_index');
+        return view('admin.page_index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('admin/category_add');
+        return view('admin.page_create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        $category = new Category();
-        $request->request->set('slug', Str::slug($request->get('title')));
-        $category->fill($request->all());
-        $category->save();
-
-        return redirect()->route('category.index')->with('alert', ['type' => 'success', 'message' => 'Categorie succesvol toegevoegd.']);
+        //
     }
 
     /**

@@ -15,12 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
+Route::get('admin', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
+
+Route::resource('admin/page', App\Http\Controllers\Admin\PageController::class);
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
 Route::put('profile/update', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');

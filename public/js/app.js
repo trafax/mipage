@@ -40877,6 +40877,16 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+$(function () {
+  $('body').on('click', '[data-href]', function () {
+    $('.modal').modal('hide');
+    var dataURL = $(this).attr('data-href');
+    $('#modal').load(dataURL, function () {
+      $('.modal').modal('show');
+    });
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

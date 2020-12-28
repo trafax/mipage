@@ -43626,6 +43626,13 @@ $(function () {
   $('body').on('submit', 'form', function () {
     window.loader('show');
   });
+  $('body').on('click', '[data-delete]', function () {
+    if (confirm($(this).data('delete'))) {
+      window.location.href = $(this).attr('href');
+    }
+
+    return false;
+  });
 });
 
 /***/ }),

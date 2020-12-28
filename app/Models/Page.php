@@ -14,7 +14,12 @@ class Page extends Model
         'parent_id',
         'title',
         'slug',
-        'sort'
+        'sort',
+        'seo'
+    ];
+
+    public $casts = [
+        'seo' => 'array'
     ];
 
     public function childs()

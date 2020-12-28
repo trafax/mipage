@@ -11957,7 +11957,7 @@ url(/fonts/vendor/bootstrap-icons/bootstrap-icons.woff2?e93b45b0aa3939b711d66589
 #loader {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.8);
   position: fixed;
   z-index: 9999;
   display: none;

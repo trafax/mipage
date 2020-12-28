@@ -18,12 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::any('{slug}', [App\Http\Controllers\PageController::class, 'page'])->name('page');
+Route::get('/', [App\Http\Controllers\PageController::class, 'home'])->name('home');
+
 Route::get('admin', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
 
 Route::post('admin/page/sort', [App\Http\Controllers\Admin\PageController::class, 'sort'])->name('page.sort');
-Route::resource('admin/page', App\Http\Controllers\Admin\PageController::class);
+Route::get('admin/page/{page}/destroy', [App\Http\Controllers\Admin\PageController::class, 'destroy'])->name('page.destroy');
+Route::resource('admin/page', App\Http\Controllers\Admin\PageController::class)->except('destroy');
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
 Route::put('profile/update', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');

@@ -50,9 +50,11 @@ class PageController extends Controller
         return redirect('/')->with('modal', route('page.index'));
     }
 
-    public function destroy($id)
+    public function destroy(Page $page)
     {
-        //
+        $page->delete();
+
+        return redirect('/')->with('modal', route('page.index'));
     }
 
     public function sort(Request $request)

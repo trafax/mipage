@@ -11,6 +11,7 @@
 <body>
 
     @if (Auth::user() && Auth::user()->isAdmin())
+        <div id="loader"><p class="position-absolute top-50 start-50 translate-middle">Een ogenblik geduld a.u.b.</p></div>
         @include('partials.admin_bar')
         <div id="modal"></div>
     @endif

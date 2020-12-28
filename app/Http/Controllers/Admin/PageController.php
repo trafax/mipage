@@ -34,48 +34,35 @@ class PageController extends Controller
         return redirect('/')->with('modal', route('page.index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function edit(Page $page)
     {
-        //
+        return view('admin.page_edit')->with([
+            'page' => $page
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function update(Request $request, Page $page)
     {
-        //
+        $request->request->set('slug', Str::slug($request->get('title')));
+        $page->fill($request->all());
+        $page->save();
+
+        return redirect('/')->with('modal', route('page.index'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
+    }
+
+    public function sort(Request $request)
+    {
+        foreach ($request->get('items') as $key => $id) {
+            $page = Page::find($id);
+            $page->sort = $key;
+            $page->save();
+        }
+
+        echo 1;
     }
 }

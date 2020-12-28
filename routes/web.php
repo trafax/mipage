@@ -20,6 +20,7 @@ Auth::routes();
 
 Route::get('admin', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm']);
 
+Route::post('admin/page/sort', [App\Http\Controllers\Admin\PageController::class, 'sort'])->name('page.sort');
 Route::resource('admin/page', App\Http\Controllers\Admin\PageController::class);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
